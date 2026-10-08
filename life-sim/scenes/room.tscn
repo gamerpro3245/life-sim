@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh6o8xkgr85dm"]
 
 [ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="1_36trf"]
+[ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="2_ffxv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -41,3 +42,30 @@ shape = SubResource("RectangleShape2D_g0txl")
 [node name="Right" type="CollisionShape2D" parent="Walls" unique_id=2062316809]
 position = Vector2(810, 250)
 shape = SubResource("RectangleShape2D_f3kvk")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=121654355]
+script = ExtResource("2_ffxv4")
+
+[node name="Needs" type="VBoxContainer" parent="HUD" unique_id=13283769]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Label" type="Label" parent="HUD/Needs" unique_id=366738833]
+layout_mode = 2
+text = "Голод"
+
+[node name="HungerBar" type="ProgressBar" parent="HUD/Needs" unique_id=2055297471]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 100.0
+
+[node name="Label2" type="Label" parent="HUD/Needs" unique_id=326370626]
+layout_mode = 2
+text = "Энергия"
+
+[node name="EnergyBar" type="ProgressBar" parent="HUD/Needs" unique_id=1155744118]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 100.0

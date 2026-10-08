@@ -15,3 +15,9 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") # Смотрит управление и возвращает направление
 	velocity = direction * SPEED # Скорость
 	move_and_slide() # Реально двигает персонажа и не пускает его сквозь стены
+
+func restore(need: String, amount: float) -> void:
+	if need == "hunger":
+		hunger = minf(hunger + amount, 100.0) # Не даёт превысить максимум
+	elif need == "energy":
+		energy = minf(energy + amount, 100.0) 

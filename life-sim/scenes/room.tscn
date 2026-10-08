@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="1_36trf"]
 [ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="2_ffxv4"]
+[ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_85yof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -69,3 +70,12 @@ text = "Энергия"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 value = 100.0
+
+[node name="Fridge" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
+position = Vector2(100, 100)
+
+[node name="Bed" parent="." unique_id=1752328964 instance=ExtResource("3_85yof")]
+position = Vector2(600, 350)
+need = "energy"
+amount = 50.0
+color = Color(0.614469, 0.40863186, 0.040729024, 1)

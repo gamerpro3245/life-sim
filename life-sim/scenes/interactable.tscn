@@ -16,3 +16,9 @@ color = Color(0.8214829, 0, 0.32151413, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=225673425]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_x7nd1")
+
+[node name="Hint" type="Label" parent="." unique_id=852870964]
+offset_top = -24.0
+offset_right = 71.0
+offset_bottom = -1.0
+text = "Нажми E"

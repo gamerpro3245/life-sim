@@ -10,14 +10,17 @@ func _ready() -> void:
 	$Body.color = color
 	body_entered.connect(_on_body_entered) # Сигнал кто-то зашёл в зону, connect привязываем наши функции
 	body_exited.connect(_on_body_exited) # Сигнал кто-то вышел из зоны
+	$Hint.visible = false # Подсказка скрыта
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = body
+		$Hint.visible = true # Показывается, когда персонаж стоит в зоне
 		
 func _on_body_exited(body:Node2D) -> void:
 	if body == player_inside:
 		player_inside = null
+		$Hint.visible = false # Прячется, когда персонаж вышел из зоны
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and event.is_action_pressed("interact"):

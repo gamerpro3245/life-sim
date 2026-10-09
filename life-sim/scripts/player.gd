@@ -12,8 +12,11 @@ func _process(delta: float) -> void: # Вызывается каждый кад�
 	energy = maxf(energy - ENERGY_DECAY * delta, 0.0) # maxf не даёт значению уйти ниже нуля
 
 func _physics_process(_delta: float) -> void:
+	var current_speed := SPEED
+	if hunger <= 0.0 or energy <= 0.0:
+		current_speed = SPEED * 0.4 # Если голоден или без сил, персонаж еле идёт
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") # Смотрит управление и возвращает направление
-	velocity = direction * SPEED # Скорость
+	velocity = direction * current_speed # Скорость
 	move_and_slide() # Реально двигает персонажа и не пускает его сквозь стены
 
 func restore(need: String, amount: float) -> void:

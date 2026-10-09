@@ -19,3 +19,7 @@ func get_minute() -> int:
 	
 func get_time_text() -> String:
 	return "День %d, %02d:%02d" % [get_day(), get_hour(), get_minute()] # %02d - целое число, минимум две цифры, с нулём впереди
+
+func is_night() -> bool: # Возвращает true или false, чтобы другие скрипты могли спросить "сейчас ночь?"
+	var hour := get_hour()
+	return hour >= 22 or hour < 6

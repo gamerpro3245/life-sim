@@ -24,4 +24,7 @@ func _on_body_exited(body:Node2D) -> void:
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and event.is_action_pressed("interact"):
-		player_inside.restore(need, amount)
+		var final_amount := amount
+		if need == "energy" and GameClock.is_night():
+			final_amount *= 1.5 # Ночью сон полезнее
+		player_inside.restore(need, final_amount)

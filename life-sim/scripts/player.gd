@@ -9,7 +9,10 @@ var energy := 100.0
 
 func _process(delta: float) -> void: # Вызывается каждый кадр, delta - время с прошлого кадра
 	hunger = maxf(hunger - HUNGER_DECAY * delta, 0.0) # Умножение на delta, чтобы падало одинаково быстро на любом компьютере. 
-	energy = maxf(energy - ENERGY_DECAY * delta, 0.0) # maxf не даёт значению уйти ниже нуля
+	var energy_decay := ENERGY_DECAY
+	if GameClock.is_night():
+		energy_decay *= 2.0 # Ночью хочется спать вдвое быстрее
+	energy = maxf(energy - energy_decay * delta, 0.0) # maxf не даёт значению уйти ниже нуля
 
 func _physics_process(_delta: float) -> void:
 	var current_speed := SPEED

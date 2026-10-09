@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="1_36trf"]
 [ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="2_ffxv4"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_85yof"]
+[ext_resource type="Script" uid="uid://c5mj82ijhhs6d" path="res://scripts/day_night.gd" id="4_14vil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -53,6 +54,9 @@ offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
 
+[node name="ClockLabel" type="Label" parent="HUD/Needs" unique_id=1759029419]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="HUD/Needs" unique_id=366738833]
 layout_mode = 2
 text = "Голод"
@@ -79,3 +83,6 @@ position = Vector2(600, 350)
 need = "energy"
 amount = 50.0
 color = Color(0.614469, 0.40863186, 0.040729024, 1)
+
+[node name="DayNight" type="CanvasModulate" parent="." unique_id=349656888]
+script = ExtResource("4_14vil")

@@ -75,6 +75,9 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 value = 100.0
 
+[node name="MoodLabel" type="Label" parent="HUD/Needs" unique_id=2004177094]
+layout_mode = 2
+
 [node name="Fridge" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
 position = Vector2(100, 100)
 

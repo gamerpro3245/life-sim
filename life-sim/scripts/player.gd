@@ -27,3 +27,18 @@ func restore(need: String, amount: float) -> void:
 		hunger = minf(hunger + amount, 100.0) # Не даёт превысить максимум
 	elif need == "energy":
 		energy = minf(energy + amount, 100.0) 
+
+func get_mood() -> float:
+	return (hunger + energy) / 2.0 # Нстроение - среднее между голодом и энергией, от 0 до 100
+
+func get_mood_text() -> String:
+	var mood := get_mood()
+	# if / elif / else проверяет условия сверху вниз и берёт первое подходящее. Порядок важен: сначала самое высокое значение.
+	if mood >= 75.0:
+		return "Отличное"
+	elif mood >= 50.0:
+		return "Хорошее"
+	elif mood >= 25.0:
+		return "Плохое"
+	else:
+		return "Ужасное" # Возвращает результат и выходит из функции. Здесь ловит всё, что ниже 25

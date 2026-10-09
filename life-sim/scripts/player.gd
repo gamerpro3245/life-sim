@@ -29,7 +29,7 @@ func restore(need: String, amount: float) -> void:
 		energy = minf(energy + amount, 100.0) 
 
 func get_mood() -> float:
-	return (hunger + energy) / 2.0 # Нстроение - среднее между голодом и энергией, от 0 до 100
+	return (hunger + energy) / 2.0 # Настроение - среднее между голодом и энергией, от 0 до 100
 
 func get_mood_text() -> String:
 	var mood := get_mood()

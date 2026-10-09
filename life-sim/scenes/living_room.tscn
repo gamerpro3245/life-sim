@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://dh6o8xkgr85dm"]
 
-[ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="1_36trf"]
-[ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="2_ffxv4"]
+[ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="2_a7140"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_85yof"]
-[ext_resource type="Script" uid="uid://c5mj82ijhhs6d" path="res://scripts/day_night.gd" id="4_14vil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -24,9 +22,6 @@ offset_right = 800.0
 offset_bottom = 500.0
 color = Color(0, 0.5137255, 0.95686275, 1)
 
-[node name="Player" parent="." unique_id=344498460 instance=ExtResource("1_36trf")]
-position = Vector2(366, 268)
-
 [node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
 
 [node name="Top" type="CollisionShape2D" parent="Walls" unique_id=2103930810]
@@ -45,47 +40,13 @@ shape = SubResource("RectangleShape2D_g0txl")
 position = Vector2(810, 250)
 shape = SubResource("RectangleShape2D_f3kvk")
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=121654355]
-script = ExtResource("2_ffxv4")
-
-[node name="Needs" type="VBoxContainer" parent="HUD" unique_id=13283769]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-
-[node name="ClockLabel" type="Label" parent="HUD/Needs" unique_id=1759029419]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HUD/Needs" unique_id=366738833]
-layout_mode = 2
-text = "Голод"
-
-[node name="HungerBar" type="ProgressBar" parent="HUD/Needs" unique_id=2055297471]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-value = 100.0
-
-[node name="Label2" type="Label" parent="HUD/Needs" unique_id=326370626]
-layout_mode = 2
-text = "Энергия"
-
-[node name="EnergyBar" type="ProgressBar" parent="HUD/Needs" unique_id=1155744118]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-value = 100.0
-
-[node name="MoodLabel" type="Label" parent="HUD/Needs" unique_id=2004177094]
-layout_mode = 2
-
-[node name="Fridge" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
-position = Vector2(100, 100)
-
 [node name="Bed" parent="." unique_id=1752328964 instance=ExtResource("3_85yof")]
 position = Vector2(600, 350)
 need = "energy"
 amount = 50.0
 color = Color(0.614469, 0.40863186, 0.040729024, 1)
 
-[node name="DayNight" type="CanvasModulate" parent="." unique_id=349656888]
-script = ExtResource("4_14vil")
+[node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
+position = Vector2(770, 200)
+target_room = "uid://cqfm0xfuhw5uc"
+spawn_position = Vector2(80, 250)

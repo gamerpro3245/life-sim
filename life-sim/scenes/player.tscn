@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://bfhd5k1tbfnq2"]
 
 [ext_resource type="Script" uid="uid://dtsd15uk58gqg" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bpsbomnc4q7ho" path="res://assets/kenney_roguelike-characters/Spritesheet/roguelikeChar_transparent.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
-size = Vector2(32, 48)
+size = Vector2(32, 24)
 
 [node name="Player" type="CharacterBody2D" unique_id=344498460]
 script = ExtResource("1_3vyb7")
 
-[node name="Body" type="ColorRect" parent="." unique_id=1629365976]
-offset_right = 32.0
-offset_bottom = 48.0
-color = Color(1, 0.2901961, 1, 1)
+[node name="Sprite" type="Sprite2D" parent="." unique_id=646820821]
+scale = Vector2(4, 4)
+texture = ExtResource("2_g2els")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 119, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=796352571]
-position = Vector2(16, 24)
+position = Vector2(32, 52)
 shape = SubResource("RectangleShape2D_x7nd1")

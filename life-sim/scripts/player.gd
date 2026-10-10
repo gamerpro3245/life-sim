@@ -6,6 +6,7 @@ const ENERGY_DECAY := 1.0 # на сколько падает энергия в �
 
 var hunger := 100.0
 var energy := 100.0
+var walk_time := 0.0
 
 func _process(delta: float) -> void: # Вызывается каждый кадр, delta - время с прошлого кадра
 	hunger = maxf(hunger - HUNGER_DECAY * delta, 0.0) # Умножение на delta, чтобы падало одинаково быстро на любом компьютере. 
@@ -14,14 +15,25 @@ func _process(delta: float) -> void: # Вызывается каждый кад�
 		energy_decay *= 2.0 # Ночью хочется спать вдвое быстрее
 	energy = maxf(energy - energy_decay * delta, 0.0) # maxf не даёт значению уйти ниже нуля
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var current_speed := SPEED
 	if hunger <= 0.0 or energy <= 0.0:
 		current_speed = SPEED * 0.4 # Если голоден или без сил, персонаж еле идёт
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") # Смотрит управление и возвращает направление
 	velocity = direction * current_speed # Скорость
 	move_and_slide() # Реально двигает персонажа и не пускает его сквозь стены
-
+	
+	if direction.x <= 0.0:
+		$Sprite.flip_h = true # Смотрит влево
+	elif direction.x > 0.0:
+		$Sprite.flip_h = false # Смотрит вправо
+		
+	if direction != Vector2.ZERO:
+		walk_time += delta * 12.0
+		$Sprite.position.y = -absf(sin(walk_time)) * 4.0 # Подпрыгивает при ходьбе, sin даёт волну, absf делает из неё серию подпрыгиваний, а умножение на 4 задаёт высоту прыжка в пикселях.
+	else:
+		$Sprite.position.y = 0.0 # Стоит спокойно
+		
 func restore(need: String, amount: float) -> void:
 	if need == "hunger":
 		hunger = minf(hunger + amount, 100.0) # Не даёт превысить максимум

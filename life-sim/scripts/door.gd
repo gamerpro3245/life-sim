@@ -9,4 +9,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		# call_deferred - выполнить чуть позже, в безопасный момент. Менять сцену во время столкновения нельзя
+		Sfx.play("door")
 		get_tree().current_scene.change_room.call_deferred(target_room, spawn_position)

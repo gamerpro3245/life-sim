@@ -19,19 +19,23 @@ func _unhandled_input(event: InputEvent) -> void:
 			open_menu()
 			
 func open_menu() -> void:
+	Sfx.play("open")
 	visible = true
 	status_label.text = ""
 	get_tree().paused = true # Ставим всю игру на паузу: время, голод, движение
 	resume_button.grab_focus() # Выделяем первую кнопку, чтобы можно было ходить по меню клавишами
 
 func close_menu() -> void:
+	Sfx.play("close")
 	visible = false
 	get_tree().paused = false
 	
 func _on_save_pressed() -> void:
+	Sfx.play("confirm")
 	main.save_game()
 	status_label.text = "Игра сохранена"
 	
 func _on_load_pressed() -> void:
+	Sfx.play("click")
 	main.load_game()
 	close_menu()

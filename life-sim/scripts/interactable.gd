@@ -3,6 +3,7 @@ extends Area2D
 @export var need := "hunger" # Показывает переменную в Inspector
 @export var amount := 40.0
 @export var tile_region := Rect2(0, 0, 16, 16) # Какой кусок листа показывать: x, y , ширина, высота
+@export var sound := "" # Какой звук играть при использовании
 
 var player_inside: Node2D = null
 
@@ -27,4 +28,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		var final_amount := amount
 		if need == "energy" and GameClock.is_night():
 			final_amount *= 1.5 # Ночью сон полезнее
+		Sfx.play(sound)
 		player_inside.restore(need, final_amount)

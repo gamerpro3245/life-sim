@@ -47,6 +47,7 @@ shape = SubResource("RectangleShape2D_f3kvk")
 [node name="Fridge" parent="." unique_id=800706906 instance=ExtResource("1_7ilqw")]
 position = Vector2(100, 100)
 tile_region = Rect2(85, 221, 16, 16)
+sound = "eat"
 
 [node name="DoorToLiving" parent="." unique_id=1967346421 instance=ExtResource("2_mrp8g")]
 position = Vector2(0, 200)

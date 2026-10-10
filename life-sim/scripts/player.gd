@@ -14,6 +14,7 @@ var needs := { # Текущие значения потребностей, от 
 }
 
 var walk_time := 0.0
+var slep_timer := 0.0
 
 func _process(delta: float) -> void: # Вызывается каждый кадр, delta - время с прошлого кадра
 	for need in needs: # Перебираем все потребности по очереди
@@ -38,8 +39,13 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		walk_time += delta * 12.0
 		$Sprite.position.y = -absf(sin(walk_time)) * 4.0 # Подпрыгивает при ходьбе, sin даёт волну, absf делает из неё серию подпрыгиваний, а умножение на 4 задаёт высоту прыжка в пикселях.
+		slep_timer -= delta
+		if slep_timer <= 0.0:
+			slep_timer = PI / 12.0 # Один подскок - один шаг
+			Sfx.play("step", 0.15, -10.0) # Чуть тише и с разбросом высоты
 	else:
 		$Sprite.position.y = 0.0 # Стоит спокойно
+		slep_timer = 0.0 # Первый шаг прозвучит сразу, как пойдём
 		
 func restore(need: String, amount: float) -> void:
 	if needs.has(need) : # Если такая потребность существует

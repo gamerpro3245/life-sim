@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameClock="*uid://do46so4eskeia"
+Sfx="*uid://en5cimix48m4"
 
 [display]
 

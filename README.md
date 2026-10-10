@@ -22,7 +22,7 @@
 - [x] Звук и настройки громкости
 - [x] Главное меню
 - [x] Название и иконка
-- [ ] Демо на itch.io
+- [x] Демо на itch.io
 
 ## Управление
 - Стрелки или WASD - ходить
@@ -36,3 +36,8 @@
 ## Авторы
 - Графика: Kenney (kenney.nl), лицензия CC0
 - Музыка: Heavenly Loop (isaiah658), лицензия CC0, https://opengameart.org/content/heavenly-loop
+
+## Соцсети
+- Дискорд-сервер: https://discord.gg/BJevedBNC
+- Скачать игру: https://gamerpro3245.itch.io/cozy-days-game-1
+- Телеграмм-канал: https://t.me/cozy_days_game

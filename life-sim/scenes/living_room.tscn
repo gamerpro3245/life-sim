@@ -49,6 +49,11 @@ need = "energy"
 amount = 50.0
 tile_region = Rect2(136, 102, 16, 16)
 
+[node name="Piano" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
+position = Vector2(100, 100)
+need = "fun"
+tile_region = Rect2(391, 136, 16, 16)
+
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
 position = Vector2(770, 200)
 target_room = "uid://cqfm0xfuhw5uc"

@@ -44,6 +44,15 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 value = 100.0
 
+[node name="Label3" type="Label" parent="HUD/Needs" unique_id=2121676179]
+layout_mode = 2
+text = "Развлечение"
+
+[node name="FunBar" type="ProgressBar" parent="HUD/Needs" unique_id=2071203286]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 100.0
+
 [node name="MoodLabel" type="Label" parent="HUD/Needs" unique_id=765365083]
 layout_mode = 2
 

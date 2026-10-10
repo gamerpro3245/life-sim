@@ -2,12 +2,12 @@ extends Area2D
 
 @export var need := "hunger" # Показывает переменную в Inspector
 @export var amount := 40.0
-@export var color := Color.WHITE
+@export var tile_region := Rect2(0, 0, 16, 16) # Какой кусок листа показывать: x, y , ширина, высота
 
 var player_inside: Node2D = null
 
 func _ready() -> void:
-	$Body.color = color
+	$Sprite.region_rect = tile_region # Предмет сам выбирает свою плитку, а сцена остаётся одна
 	body_entered.connect(_on_body_entered) # Сигнал кто-то зашёл в зону, connect привязываем наши функции
 	body_exited.connect(_on_body_exited) # Сигнал кто-то вышел из зоны
 	$Hint.visible = false # Подсказка скрыта

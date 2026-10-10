@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_f3kvk")
 position = Vector2(600, 350)
 need = "energy"
 amount = 50.0
-color = Color(0.614469, 0.40863186, 0.040729024, 1)
+tile_region = Rect2(136, 102, 16, 16)
 
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
 position = Vector2(770, 200)

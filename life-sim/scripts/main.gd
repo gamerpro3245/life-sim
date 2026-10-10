@@ -12,6 +12,9 @@ var current_room: Node = null
 
 func _ready() -> void:
 	change_room(start_room, player.position)
+	if GameClock.continue_requested:
+		GameClock.continue_requested = false
+		load_game()
 	
 func change_room(room_path: String, spawn_position: Vector2) -> void:
 	if current_room:

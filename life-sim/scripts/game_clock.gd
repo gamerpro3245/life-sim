@@ -3,6 +3,7 @@ extends Node
 const MINUTES_PER_REAL_SECOND := 6.0 # реальная секунда = 6 игровых минут
 
 var total_minutes := 8.0 * 60.0 # Старт игры в 08:00 первого дня
+var continue_requested := false
 
 func _process(delta: float) -> void:
 	total_minutes += MINUTES_PER_REAL_SECOND * delta

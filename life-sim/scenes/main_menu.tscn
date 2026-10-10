@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bnyquhsnqtkyp"]
+
+[ext_resource type="Script" uid="uid://i5ikg2ows3nk" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=958346697]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1495587860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12156863, 0.16470589, 0.26666668, 1)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=967329864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Center" unique_id=769514784]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Center/Buttons" unique_id=1811329501]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Моя жизнь"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="Center/Buttons" unique_id=1091321871]
+layout_mode = 2
+text = "Новая игра"
+
+[node name="ContinueButton" type="Button" parent="Center/Buttons" unique_id=1773827675]
+layout_mode = 2
+text = "Продолжить"
+
+[node name="QuitButton" type="Button" parent="Center/Buttons" unique_id=1449544025]
+layout_mode = 2
+text = "Выйти"

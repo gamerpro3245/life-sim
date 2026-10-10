@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://c5mj82ijhhs6d" path="res://scripts/day_night.gd" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c445jhb5canlb" path="res://scenes/pause_menu.tscn" id="6_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://dmies5u14hvaa" path="res://assets/music/Heavenly Loop.ogg" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=616784210]
@@ -64,3 +65,5 @@ process_mode = 3
 stream = ExtResource("6_tefeu")
 autoplay = true
 bus = &"Music"
+
+[node name="PauseMenu" parent="." unique_id=231917153 instance=ExtResource("6_o6xl0")]

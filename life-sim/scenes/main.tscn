@@ -19,8 +19,10 @@ position = Vector2(366, 268)
 script = ExtResource("3_tefeu")
 
 [node name="Needs" type="VBoxContainer" parent="HUD" unique_id=1445148250]
-offset_right = 200.0
-offset_bottom = 282.0
+offset_left = 24.0
+offset_top = 34.0
+offset_right = 224.0
+offset_bottom = 316.0
 scale = Vector2(0.65, 0.65)
 
 [node name="ClockLabel" type="Label" parent="HUD/Needs" unique_id=1213210068]
@@ -29,7 +31,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HUD/Needs" unique_id=1042630471]
 layout_mode = 2
 text = "Голод"
-horizontal_alignment = 1
 
 [node name="HungerBar" type="ProgressBar" parent="HUD/Needs" unique_id=2036880913]
 custom_minimum_size = Vector2(200, 0)
@@ -39,7 +40,6 @@ value = 100.0
 [node name="Label2" type="Label" parent="HUD/Needs" unique_id=627984668]
 layout_mode = 2
 text = "Энергия"
-horizontal_alignment = 1
 
 [node name="EnergyBar" type="ProgressBar" parent="HUD/Needs" unique_id=857828957]
 custom_minimum_size = Vector2(200, 0)
@@ -49,7 +49,6 @@ value = 100.0
 [node name="Label3" type="Label" parent="HUD/Needs" unique_id=2121676179]
 layout_mode = 2
 text = "Развлечение"
-horizontal_alignment = 1
 
 [node name="FunBar" type="ProgressBar" parent="HUD/Needs" unique_id=2071203286]
 custom_minimum_size = Vector2(200, 0)
@@ -59,7 +58,6 @@ value = 100.0
 [node name="Label4" type="Label" parent="HUD/Needs" unique_id=1743537368]
 layout_mode = 2
 text = "Гигиена"
-horizontal_alignment = 1
 
 [node name="HygieneBar" type="ProgressBar" parent="HUD/Needs" unique_id=810450481]
 custom_minimum_size = Vector2(200, 0)

@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="life-sim"
+config/name="Уютные дни"
 config/version="0.1.0"
 run/main_scene="uid://bnyquhsnqtkyp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://byuhadedd83u6"
 
 [audio]
 

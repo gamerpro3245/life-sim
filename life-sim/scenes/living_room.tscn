@@ -44,14 +44,14 @@ position = Vector2(810, 250)
 shape = SubResource("RectangleShape2D_f3kvk")
 
 [node name="Bed" parent="." unique_id=1752328964 instance=ExtResource("3_85yof")]
-position = Vector2(600, 350)
+position = Vector2(400, 100)
 need = "energy"
 amount = 50.0
 tile_region = Rect2(136, 102, 16, 16)
 sound = "sleep"
 
 [node name="Piano" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
-position = Vector2(100, 100)
+position = Vector2(10, 300)
 need = "fun"
 tile_region = Rect2(391, 136, 16, 16)
 sound = "piano"

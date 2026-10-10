@@ -68,5 +68,5 @@ func _save_settings() -> void:
 	config.save(SETTINGS_PATH)
 	
 func _on_quit_pressed() -> void:
-	_save_settings()
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

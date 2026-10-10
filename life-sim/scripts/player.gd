@@ -49,7 +49,7 @@ func get_mood() -> float:
 	var total := 0.0
 	for value in needs.values():
 		total += value
-	return total / needs.size() # Настроение - среднее между голодом и энергией, от 0 до 100
+	return total / needs.size() # Настроение - среднее по всем потребностям, от 0 до 100
 
 func get_mood_text() -> String:
 	var mood := get_mood()

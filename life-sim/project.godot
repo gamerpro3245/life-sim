@@ -27,8 +27,11 @@ Sfx="*uid://en5cimix48m4"
 
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=500
+window/size/window_width_override=1200
+window/size/window_height_override=750
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [input]
 

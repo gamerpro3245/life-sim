@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmies5u14hvaa"
+path="res://.godot/imported/Heavenly Loop.ogg-9299bcd830bdd60c93f06108b1b5e040.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Heavenly Loop.ogg"
+dest_files=["res://.godot/imported/Heavenly Loop.ogg-9299bcd830bdd60c93f06108b1b5e040.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

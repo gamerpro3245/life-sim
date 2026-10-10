@@ -22,6 +22,7 @@ func play(sound_name: String, pitch_variation := 0.0, volume_db := 0.0) -> void:
 	player.stream = SOUNDS[sound_name]
 	player.pitch_scale = 1.0 + randf_range(-pitch_variation, pitch_variation) # Небольшой разброс высоты
 	player.volume_db = volume_db # Громкость в децибелах: 0 - как есть, минус - тише
+	player.bus = "SFX"
 	player.finished.connect(player.queue_free) # Когда доиграл, удаляем
 	add_child(player)
 	player.play()

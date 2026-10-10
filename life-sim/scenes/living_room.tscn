@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dh6o8xkgr85dm"]
 
+[ext_resource type="PackedScene" uid="uid://cturjo431i148" path="res://scenes/floor_tiles.tscn" id="1_dxoax"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="2_a7140"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_85yof"]
 
@@ -20,7 +21,9 @@ size = Vector2(20, 500)
 [node name="Floor" type="ColorRect" parent="." unique_id=2133753689]
 offset_right = 800.0
 offset_bottom = 500.0
-color = Color(0, 0.5137255, 0.95686275, 1)
+color = Color(0.35686275, 0.22745098, 0.16078432, 1)
+
+[node name="FloorTiles" parent="." unique_id=1888950477 instance=ExtResource("1_dxoax")]
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
 

@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * current_speed # Скорость
 	move_and_slide() # Реально двигает персонажа и не пускает его сквозь стены
 	
-	if direction.x <= 0.0:
+	if direction.x < 0.0:
 		$Sprite.flip_h = true # Смотрит влево
 	elif direction.x > 0.0:
 		$Sprite.flip_h = false # Смотрит вправо

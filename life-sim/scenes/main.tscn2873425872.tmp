@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhd5k1tbfnq2" path="res://scenes/player.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://c5mj82ijhhs6d" path="res://scripts/day_night.gd" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://cc08x4khq43ks" path="res://scripts/pause_menu.gd" id="5_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://dmies5u14hvaa" path="res://assets/music/Heavenly Loop.ogg" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=616784210]
@@ -58,6 +59,53 @@ layout_mode = 2
 
 [node name="DayNight" type="CanvasModulate" parent="." unique_id=767825786]
 script = ExtResource("4_o6xl0")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=323593230]
+process_mode = 3
+script = ExtResource("5_tbgi4")
+
+[node name="Dim" type="ColorRect" parent="PauseMenu" unique_id=1303665173]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.08235294, 0.08235294, 0.23529412)
+
+[node name="Center" type="CenterContainer" parent="PauseMenu" unique_id=2082273246]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="PauseMenu/Center" unique_id=661685542]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PauseMenu/Center/Buttons" unique_id=426091033]
+layout_mode = 2
+text = "Пауза"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Center/Buttons" unique_id=794723108]
+layout_mode = 2
+text = "Продолжить"
+
+[node name="SaveButton" type="Button" parent="PauseMenu/Center/Buttons" unique_id=1944646746]
+layout_mode = 2
+text = "Сохранить"
+
+[node name="LoadButton" type="Button" parent="PauseMenu/Center/Buttons" unique_id=1939882359]
+layout_mode = 2
+text = "Загрузить"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/Center/Buttons" unique_id=883858906]
+layout_mode = 2
+text = "Выйти"
+
+[node name="StatusLabel" type="Label" parent="PauseMenu/Center/Buttons" unique_id=90777412]
+layout_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1251860439]
 process_mode = 3

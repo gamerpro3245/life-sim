@@ -38,6 +38,6 @@
 - Музыка: Heavenly Loop (isaiah658), лицензия CC0, https://opengameart.org/content/heavenly-loop
 
 ## Соцсети
-- Дискорд-сервер: https://discord.gg/BJevedBNC
+- Дискорд-сервер: https://discord.gg/PXZQNAMCrs
 - Скачать игру: https://gamerpro3245.itch.io/cozy-days-game-1
 - Телеграмм-канал: https://t.me/cozy_days_game

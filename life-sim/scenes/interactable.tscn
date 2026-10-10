@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dobnii38k8ynf" path="res://assets/kenney_roguelike_indoors/Tilesheets/roguelikeIndoor_transparent.png" id="2_ij5l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
+size = Vector2(104, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bka4f"]
 size = Vector2(64, 64)
 
 [node name="Interactable" type="Area2D" unique_id=800706906]
@@ -24,3 +27,9 @@ offset_top = -24.0
 offset_right = 71.0
 offset_bottom = -1.0
 text = "Нажми E"
+
+[node name="Body" type="StaticBody2D" parent="." unique_id=425595567]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1737336950]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_bka4f")

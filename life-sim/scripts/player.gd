@@ -5,12 +5,14 @@ const DECAY := { # На сколько падает каждая потребн�
 	"hunger": 2.0,
 	"energy": 1.0,
 	"fun": 1.5,
+	"hygiene": 1.2
 }
 
 var needs := { # Текущие значения потребностей, от 0 до 100
 	"hunger": 100.0,
 	"energy": 100.0,
 	"fun": 100.0,
+	"hygiene": 100.0
 }
 
 var walk_time := 0.0

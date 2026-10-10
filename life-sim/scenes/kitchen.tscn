@@ -49,6 +49,13 @@ position = Vector2(400, 100)
 tile_region = Rect2(85, 221, 16, 16)
 sound = "eat"
 
+[node name="Sink" parent="." unique_id=659131264 instance=ExtResource("1_7ilqw")]
+position = Vector2(700, 100)
+need = "hygiene"
+amount = 50.0
+tile_region = Rect2(136, 204, 16, 16)
+sound = "open"
+
 [node name="DoorToLiving" parent="." unique_id=1967346421 instance=ExtResource("2_mrp8g")]
 position = Vector2(0, 200)
 target_room = "uid://dh6o8xkgr85dm"

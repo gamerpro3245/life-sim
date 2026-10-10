@@ -54,6 +54,15 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 value = 100.0
 
+[node name="Label4" type="Label" parent="HUD/Needs" unique_id=1743537368]
+layout_mode = 2
+text = "Гигиена"
+
+[node name="HygieneBar" type="ProgressBar" parent="HUD/Needs" unique_id=810450481]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 100.0
+
 [node name="MoodLabel" type="Label" parent="HUD/Needs" unique_id=765365083]
 layout_mode = 2
 

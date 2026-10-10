@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var hunger_bar: ProgressBar = $Needs/HungerBar
 @onready var energy_bar: ProgressBar = $Needs/EnergyBar
 @onready var fun_bar: ProgressBar = $Needs/FunBar
+@onready var hygiene_bar: ProgressBar = $Needs/HygieneBar
 @onready var clock_label: Label = $Needs/ClockLabel
 @onready var mood_label: Label = $Needs/MoodLabel
 
@@ -11,5 +12,6 @@ func _process(_delta: float) -> void:
 	hunger_bar.value = player.needs["hunger"]
 	energy_bar.value = player.needs["energy"]
 	fun_bar.value = player.needs["fun"]
+	hygiene_bar.value = player.needs["hygiene"]
 	clock_label.text = GameClock.get_time_text()
 	mood_label.text = "Настроение: %s" % player.get_mood_text() # %s вставляет текст на своё место

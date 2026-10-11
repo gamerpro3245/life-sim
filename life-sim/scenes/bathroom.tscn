@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dif01uempico5"]
+
+[ext_resource type="PackedScene" uid="uid://cturjo431i148" path="res://scenes/floor_tiles.tscn" id="1_j2cwc"]
+[ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="2_82jhl"]
+[ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="3_qfxnf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bka4f"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0txl"]
+size = Vector2(20, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3kvk"]
+size = Vector2(20, 500)
+
+[node name="Room" type="Node2D" unique_id=487502813]
+
+[node name="Floor" type="ColorRect" parent="." unique_id=2133753689]
+offset_right = 800.0
+offset_bottom = 500.0
+color = Color(0.18431373, 0.2901961, 0.2901961, 1)
+
+[node name="FloorTiles" parent="." unique_id=1888950477 instance=ExtResource("1_j2cwc")]
+floor_tile = Vector2i(24, 4)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=2103930810]
+position = Vector2(400, -10)
+shape = SubResource("RectangleShape2D_x7nd1")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=1326077346]
+position = Vector2(400, 510)
+shape = SubResource("RectangleShape2D_bka4f")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=790528099]
+position = Vector2(-10, 250)
+shape = SubResource("RectangleShape2D_g0txl")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=2062316809]
+position = Vector2(810, 250)
+shape = SubResource("RectangleShape2D_f3kvk")
+
+[node name="Sink" parent="." unique_id=659131264 instance=ExtResource("2_82jhl")]
+position = Vector2(400, 100)
+need = "hygiene"
+amount = 50.0
+tile_region = Rect2(136, 204, 16, 16)
+sound = "open"
+
+[node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("3_qfxnf")]
+position = Vector2(769, 399)
+target_room = "uid://cqfm0xfuhw5uc"
+spawn_position = Vector2(680, 250)

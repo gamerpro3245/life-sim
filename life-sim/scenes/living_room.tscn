@@ -57,6 +57,6 @@ tile_region = Rect2(391, 136, 16, 16)
 sound = "piano"
 
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
-position = Vector2(770, 200)
+position = Vector2(770, 75)
 target_room = "uid://cqfm0xfuhw5uc"
 spawn_position = Vector2(80, 250)

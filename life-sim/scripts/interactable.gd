@@ -12,6 +12,13 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered) # Сигнал кто-то зашёл в зону, connect привязываем наши функции
 	body_exited.connect(_on_body_exited) # Сигнал кто-то вышел из зоны
 	$Hint.visible = false # Подсказка скрыта
+	monitoring = false # Дверь "спит", пока физика не поймёт, где персонаж
+	var timer := Timer.new()
+	timer.one_shot = true
+	timer.wait_time = 0.3
+	timer.timeout.connect(func(): monitoring = true)
+	add_child(timer)
+	timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

@@ -56,6 +56,13 @@ need = "fun"
 tile_region = Rect2(391, 136, 16, 16)
 sound = "piano"
 
+[node name="Bookshelf" parent="." unique_id=1322562841 instance=ExtResource("3_85yof")]
+position = Vector2(220, 100)
+need = "fun"
+amount = 30.0
+tile_region = Rect2(323, 289, 16, 16)
+sound = "click"
+
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
 position = Vector2(770, 75)
 target_room = "uid://cqfm0xfuhw5uc"

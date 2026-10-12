@@ -32,7 +32,7 @@ func _on_body_exited(body:Node2D) -> void:
 		$Hint.visible = false # Прячется, когда персонаж вышел из зоны
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if player_inside and event.is_action_pressed("interact"):
+	if player_inside and not player_inside.busy and event.is_action_pressed("interact"):
 		_start_using()
 		
 func _start_using() -> void:

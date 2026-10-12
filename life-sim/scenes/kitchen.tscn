@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cturjo431i148" path="res://scenes/floor_tiles.tscn" id="1_2b6py"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="1_7ilqw"]
+[ext_resource type="Texture2D" uid="uid://cghyw81uluocm" path="res://assets/walls/wall_kitchen.png" id="2_bems3"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="2_mrp8g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
@@ -18,13 +19,13 @@ size = Vector2(20, 500)
 
 [node name="Room" type="Node2D" unique_id=487502813]
 
-[node name="Floor" type="ColorRect" parent="." unique_id=2133753689]
-offset_right = 800.0
-offset_bottom = 500.0
-color = Color(0.2901961, 0.2901961, 0.32156864, 1)
-
 [node name="FloorTiles" parent="." unique_id=1888950477 instance=ExtResource("1_2b6py")]
 floor_tile = Vector2i(5, 0)
+
+[node name="Floor" type="TextureRect" parent="." unique_id=655368582]
+offset_right = 800.0
+offset_bottom = 500.0
+texture = ExtResource("2_bems3")
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
 

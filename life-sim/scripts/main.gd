@@ -33,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func save_game() -> void:
 	var data := {
 		"needs": player.needs,
+		"money": player.money,
 		"minutes": GameClock.total_minutes,
 		"room": current_room_path,
 		"player_x": player.position.x,
@@ -54,6 +55,7 @@ func load_game() -> void:
 	var saved_needs: Dictionary = data.get("needs", {}) # Если в файле нет потребностей, берём пустой словарь
 	for need in saved_needs:
 		player.needs[need] = saved_needs[need]
+	player.money = int(data.get("money", 100)) # В старых сохранениях денег нет, берём 100
 	GameClock.total_minutes = data["minutes"]
 	change_room(data["room"], Vector2(data["player_x"], data["player_y"]))
 	print("Игра загружена")

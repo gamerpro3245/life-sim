@@ -28,6 +28,9 @@ scale = Vector2(0.65, 0.65)
 [node name="ClockLabel" type="Label" parent="HUD/Needs" unique_id=1213210068]
 layout_mode = 2
 
+[node name="MoneyLabel" type="Label" parent="HUD/Needs" unique_id=1595455055]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="HUD/Needs" unique_id=1042630471]
 layout_mode = 2
 text = "Голод"

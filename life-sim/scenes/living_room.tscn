@@ -66,6 +66,15 @@ tile_region = Rect2(323, 289, 16, 16)
 sound = "click"
 duration = 3.0
 
+[node name="Desk" parent="." unique_id=1050937263 instance=ExtResource("3_85yof")]
+position = Vector2(600, 100)
+need = "energy"
+amount = -25.0
+tile_region = Rect2(391, 221, 16, 16)
+sound = "click"
+duration = 8.0
+money_change = 40
+
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
 position = Vector2(770, 200)
 target_room = "uid://cqfm0xfuhw5uc"

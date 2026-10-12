@@ -5,6 +5,7 @@ extends Area2D
 @export var tile_region := Rect2(0, 0, 16, 16) # Какой кусок листа показывать: x, y , ширина, высота
 @export var sound := "" # Какой звук играть при использовании
 @export var duration := 2.0 # Сколько секунд занимает действие
+@export var money_change := 0 # Сколько даёт (плюс) или забирает (минус) использование
 
 var player_inside: Node2D = null
 var use_timer: Timer = null # Таймер текущего действия, нужен для обратного отсчёта
@@ -31,6 +32,7 @@ func _on_body_exited(body:Node2D) -> void:
 	if body == player_inside:
 		player_inside = null
 		$Hint.visible = false # Прячется, когда персонаж вышел из зоны
+		$Hint.text = "Нажми E" # Сбрасываем сообщение "Не хватает денег"
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and not player_inside.busy and event.is_action_pressed("interact"):
@@ -41,6 +43,9 @@ func _process(_delta: float) -> void:
 		$Hint.text = "Занято... %d" % ceili(use_timer.time_left)
 		
 func _start_using() -> void:
+	if player_inside.money + money_change < 0:
+		$Hint.text = "Не хватает денег"
+		return
 	var user := player_inside
 	user.busy = true
 	$Hint.text = "Занято..."
@@ -62,3 +67,4 @@ func _finish_using(user: Node2D, timer: Timer) -> void:
 	if need == "energy" and GameClock.is_night():
 		final_amount *= 1.5 # Ночью сон полезнее
 	user.restore(need, final_amount)
+	user.money += money_change

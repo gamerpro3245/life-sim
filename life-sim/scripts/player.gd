@@ -17,6 +17,7 @@ var needs := { # Текущие значения потребностей, от 
 
 var walk_time := 0.0
 var busy := false # Занят ли персонаж каким-то действием
+var money := 100 # Деньги персонажа
 var step_timer := 0.0
 
 func _process(delta: float) -> void: # Вызывается каждый кадр, delta - время с прошлого кадра
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		
 func restore(need: String, amount: float) -> void:
 	if needs.has(need) : # Если такая потребность существует
-		needs[need] = minf(needs[need] + amount, 100.0) # Не даёт превысить максимум
+		needs[need] = clampf(needs[need] + amount, 0.0, 100.0) # Не выходит за пределы от 0 до 100
 
 func get_mood() -> float:
 	var total := 0.0

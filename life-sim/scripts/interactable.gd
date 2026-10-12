@@ -4,6 +4,7 @@ extends Area2D
 @export var amount := 40.0
 @export var tile_region := Rect2(0, 0, 16, 16) # Какой кусок листа показывать: x, y , ширина, высота
 @export var sound := "" # Какой звук играть при использовании
+@export var duration := 2.0 # Сколько секунд занимает действие
 
 var player_inside: Node2D = null
 
@@ -32,8 +33,25 @@ func _on_body_exited(body:Node2D) -> void:
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and event.is_action_pressed("interact"):
-		var final_amount := amount
-		if need == "energy" and GameClock.is_night():
-			final_amount *= 1.5 # Ночью сон полезнее
-		Sfx.play(sound)
-		player_inside.restore(need, final_amount)
+		_start_using()
+		
+func _start_using() -> void:
+	var user := player_inside
+	user.busy = true
+	$Hint.text = "Занято..."
+	Sfx.play(sound)
+	var timer := Timer.new()
+	timer.one_shot = true
+	timer.wait_time = duration
+	add_child(timer)
+	timer.timeout.connect(func(): _finish_using(user, timer))
+	timer.start()
+	
+func _finish_using(user: Node2D, timer: Timer) -> void:
+	timer.queue_free()
+	user.busy = false
+	$Hint.text = "Нажми E"
+	var final_amount := amount
+	if need == "energy" and GameClock.is_night():
+		final_amount *= 1.5 # Ночью сон полезнее
+	user.restore(need, final_amount)

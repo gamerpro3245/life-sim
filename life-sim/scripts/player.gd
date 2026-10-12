@@ -16,6 +16,7 @@ var needs := { # Текущие значения потребностей, от 
 }
 
 var walk_time := 0.0
+var busy := false # Занят ли персонаж каким-то действием
 var step_timer := 0.0
 
 func _process(delta: float) -> void: # Вызывается каждый кадр, delta - время с прошлого кадра
@@ -26,6 +27,10 @@ func _process(delta: float) -> void: # Вызывается каждый кад�
 		needs[need] = maxf(needs[need] - decay * delta, 0.0) # maxf не даёт значению уйти ниже нуля. Достаёт значение по названию
 
 func _physics_process(delta: float) -> void:
+	if busy:
+		velocity = Vector2.ZERO
+		$Sprite.position.y = 0.0
+		return
 	var current_speed := SPEED
 	if needs["hunger"] <= 0.0 or needs["energy"] <= 0.0:
 		current_speed = SPEED * 0.4 # Если голоден или без сил, персонаж еле идёт
@@ -45,9 +50,9 @@ func _physics_process(delta: float) -> void:
 		if step_timer <= 0.0:
 			step_timer = PI / 12.0 # Один подскок - один шаг
 			Sfx.play("step", 0.15, -10.0) # Чуть тише и с разбросом высоты
-		else:
-			$Sprite.position.y = 0.0 # Стоит спокойно
-			step_timer = 0.0 # Первый шаг прозвучит сразу, как пойдём
+	else:
+		$Sprite.position.y = 0.0 # Стоит спокойно
+		step_timer = 0.0 # Первый шаг прозвучит сразу, как пойдём
 		
 func restore(need: String, amount: float) -> void:
 	if needs.has(need) : # Если такая потребность существует

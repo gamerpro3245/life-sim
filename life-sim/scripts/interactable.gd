@@ -64,7 +64,7 @@ func _finish_using(user: Node2D, timer: Timer) -> void:
 	user.busy = false
 	$Hint.text = "Нажми E"
 	var final_amount := amount
-	if need == "energy" and GameClock.is_night():
+	if need == "energy" and amount > 0.0 and GameClock.is_night():
 		final_amount *= 1.5 # Ночью сон полезнее
 	user.restore(need, final_amount)
 	user.money += money_change

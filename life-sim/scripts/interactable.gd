@@ -36,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and not player_inside.busy and event.is_action_pressed("interact"):
 		_start_using()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if use_timer:
 		$Hint.text = "Занято... %d" % ceili(use_timer.time_left)
 		

@@ -7,6 +7,7 @@ extends Area2D
 @export var duration := 2.0 # Сколько секунд занимает действие
 
 var player_inside: Node2D = null
+var use_timer: Timer = null # Таймер текущего действия, нужен для обратного отсчёта
 
 func _ready() -> void:
 	$Sprite.region_rect = tile_region # Предмет сам выбирает свою плитку, а сцена остаётся одна
@@ -34,6 +35,10 @@ func _on_body_exited(body:Node2D) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if player_inside and not player_inside.busy and event.is_action_pressed("interact"):
 		_start_using()
+
+func _process(delta: float) -> void:
+	if use_timer:
+		$Hint.text = "Занято... %d" % ceili(use_timer.time_left)
 		
 func _start_using() -> void:
 	var user := player_inside
@@ -44,11 +49,13 @@ func _start_using() -> void:
 	timer.one_shot = true
 	timer.wait_time = duration
 	add_child(timer)
+	use_timer = timer
 	timer.timeout.connect(func(): _finish_using(user, timer))
 	timer.start()
 	
 func _finish_using(user: Node2D, timer: Timer) -> void:
 	timer.queue_free()
+	use_timer = null
 	user.busy = false
 	$Hint.text = "Нажми E"
 	var final_amount := amount

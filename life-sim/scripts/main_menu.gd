@@ -5,12 +5,14 @@ const SAVE_PATH := "user://save.json"
 @onready var new_game_button = $Center/Buttons/NewGameButton
 @onready var continue_button = $Center/Buttons/ContinueButton
 @onready var quit_button = $Center/Buttons/QuitButton
+@onready var settings_button = $Center/Buttons/SettingsButton
 
 func _ready() -> void:
 	new_game_button.pressed.connect(_on_new_game)
 	continue_button.pressed.connect(_on_continue)
 	quit_button.pressed.connect(_on_quit)
 	continue_button.disabled = not FileAccess.file_exists(SAVE_PATH)
+	settings_button.pressed.connect(_on_settings)
 	
 func _on_new_game() -> void:
 	Sfx.play("confirm")
@@ -25,3 +27,7 @@ func _on_continue() -> void:
 	
 func _on_quit() -> void:
 	get_tree().quit()
+
+func _on_settings() -> void:
+	Sfx.play("click")
+	print("Настройки открыты")

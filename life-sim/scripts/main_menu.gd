@@ -6,6 +6,11 @@ const SAVE_PATH := "user://save.json"
 @onready var continue_button = $Center/Buttons/ContinueButton
 @onready var quit_button = $Center/Buttons/QuitButton
 @onready var settings_button = $Center/Buttons/SettingsButton
+@onready var main_buttons = $Center
+@onready var settings_panel = $SettingsPanel
+@onready var music_slider: HSlider = $SettingsPanel/Box/MusicSlider
+@onready var sfx_slider: HSlider = $SettingsPanel/Box/SfxSlider
+@onready var back_button: Button = $SettingsPanel/Box/BackButton
 
 func _ready() -> void:
 	new_game_button.pressed.connect(_on_new_game)
@@ -13,6 +18,11 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit)
 	continue_button.disabled = not FileAccess.file_exists(SAVE_PATH)
 	settings_button.pressed.connect(_on_settings)
+	music_slider.value = Settings.music
+	sfx_slider.value = Settings.sfx
+	music_slider.value_changed.connect(Settings.set_music)
+	sfx_slider.value_changed.connect(Settings.set_sfx)
+	back_button.pressed.connect(_on_back)
 	
 func _on_new_game() -> void:
 	Sfx.play("confirm")
@@ -30,4 +40,12 @@ func _on_quit() -> void:
 
 func _on_settings() -> void:
 	Sfx.play("click")
-	print("Настройки открыты")
+	main_buttons.visible = false
+	settings_panel.visible = true
+	back_button.grab_focus()
+	
+func _on_back() -> void:
+	Sfx.play("click")
+	Settings.save()
+	settings_panel.visible = false
+	main_buttons.visible = true

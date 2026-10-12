@@ -54,3 +54,44 @@ text = "Настройки"
 [node name="QuitButton" type="Button" parent="Center/Buttons" unique_id=1449544025]
 layout_mode = 2
 text = "Выйти"
+
+[node name="SettingsPanel" type="CenterContainer" parent="." unique_id=419324350]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="VBoxContainer" parent="SettingsPanel" unique_id=1462066365]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsPanel/Box" unique_id=2123159701]
+layout_mode = 2
+text = "Настройки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SettingsPanel/Box" unique_id=593143909]
+layout_mode = 2
+text = "Музыка"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/Box" unique_id=1797577243]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Label3" type="Label" parent="SettingsPanel/Box" unique_id=292227224]
+layout_mode = 2
+text = "Звуки"
+
+[node name="SfxSlider" type="HSlider" parent="SettingsPanel/Box" unique_id=295452162]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="BackButton" type="Button" parent="SettingsPanel/Box" unique_id=312028301]
+layout_mode = 2
+text = "Назад"

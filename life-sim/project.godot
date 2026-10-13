@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://cje5o6bpi0nst"
 GameClock="*uid://do46so4eskeia"
 Sfx="*uid://en5cimix48m4"
 Settings="*uid://c42ojnicc5dnl"
+MusicPlayer="*uid://b36xuplp02eg7"
 
 [display]
 

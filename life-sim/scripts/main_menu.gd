@@ -28,11 +28,13 @@ func _on_new_game() -> void:
 	Sfx.play("confirm")
 	GameClock.continue_requested = false
 	GameClock.total_minutes = 8.0 * 60.0
+	Goals.reset()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func _on_continue() -> void:
 	Sfx.play("confirm")
 	GameClock.continue_requested = true
+	Goals.reset()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func _on_quit() -> void:

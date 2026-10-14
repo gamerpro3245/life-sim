@@ -6,6 +6,7 @@ extends Area2D
 @export var sound := "" # Какой звук играть при использовании
 @export var duration := 2.0 # Сколько секунд занимает действие
 @export var money_change := 0 # Сколько даёт (плюс) или забирает (минус) использование
+@export var action_id := "" # Какую цель дня закрывает это действие
 
 var player_inside: Node2D = null
 var use_timer: Timer = null # Таймер текущего действия, нужен для обратного отсчёта
@@ -68,3 +69,4 @@ func _finish_using(user: Node2D, timer: Timer) -> void:
 		final_amount *= 1.5 # Ночью сон полезнее
 	user.restore(need, final_amount)
 	user.money += money_change
+	Goals.report(action_id)

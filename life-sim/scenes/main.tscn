@@ -69,6 +69,13 @@ value = 100.0
 [node name="MoodLabel" type="Label" parent="HUD/Needs" unique_id=765365083]
 layout_mode = 2
 
+[node name="GoalsLabel" type="Label" parent="HUD" unique_id=754398624]
+offset_left = 590.0
+offset_top = 370.0
+offset_right = 630.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 12
+
 [node name="DayNight" type="CanvasModulate" parent="." unique_id=767825786]
 script = ExtResource("4_o6xl0")
 

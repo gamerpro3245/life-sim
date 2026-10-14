@@ -51,6 +51,7 @@ amount = 50.0
 tile_region = Rect2(136, 102, 16, 16)
 sound = "sleep"
 duration = 5.0
+action_id = "sleep"
 
 [node name="Piano" parent="." unique_id=800706906 instance=ExtResource("3_85yof")]
 position = Vector2(10, 300)
@@ -58,6 +59,7 @@ need = "fun"
 tile_region = Rect2(391, 136, 16, 16)
 sound = "piano"
 duration = 4.0
+action_id = "play"
 
 [node name="Bookshelf" parent="." unique_id=1322562841 instance=ExtResource("3_85yof")]
 position = Vector2(220, 100)
@@ -66,6 +68,7 @@ amount = 30.0
 tile_region = Rect2(323, 289, 16, 16)
 sound = "click"
 duration = 3.0
+action_id = "play"
 
 [node name="Desk" parent="." unique_id=1050937263 instance=ExtResource("3_85yof")]
 position = Vector2(600, 100)
@@ -75,6 +78,7 @@ tile_region = Rect2(391, 221, 16, 16)
 sound = "click"
 duration = 8.0
 money_change = 40
+action_id = "work"
 
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("2_a7140")]
 position = Vector2(770, 200)

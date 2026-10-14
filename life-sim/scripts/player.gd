@@ -76,3 +76,10 @@ func get_mood_text() -> String:
 		return "Плохое"
 	else:
 		return "Ужасное" # Возвращает результат и выходит из функции. Здесь ловит всё, что ниже 25
+
+func _ready() -> void:
+	Goals.goal_completed.connect(_on_goal_completed)
+	
+func _on_goal_completed(_text: String, reward: int) -> void:
+	money += reward # Награда за цель дня
+	Sfx.play("confirm")

@@ -51,6 +51,7 @@ need = "hygiene"
 amount = 50.0
 tile_region = Rect2(136, 204, 16, 16)
 sound = "open"
+action_id = "wash"
 
 [node name="DoorToKitchen" parent="." unique_id=1967346421 instance=ExtResource("3_qfxnf")]
 position = Vector2(0, 200)

@@ -34,6 +34,7 @@ func save_game() -> void:
 	var data := {
 		"needs": player.needs,
 		"money": player.money,
+		"goals_done": Goals.done,
 		"minutes": GameClock.total_minutes,
 		"room": current_room_path,
 		"player_x": player.position.x,
@@ -57,5 +58,7 @@ func load_game() -> void:
 		player.needs[need] = saved_needs[need]
 	player.money = int(data.get("money", 100)) # В старых сохранениях денег нет, берём 100
 	GameClock.total_minutes = data["minutes"]
+	Goals.day = GameClock.get_day() # Иначе цели сочтут день "новым" и сбросятся
+	Goals.done = data.get("goals_done", []) # В старых сохранениях целей нетб берём пустой список
 	change_room(data["room"], Vector2(data["player_x"], data["player_y"]))
 	print("Игра загружена")

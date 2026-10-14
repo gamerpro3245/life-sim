@@ -1,6 +1,6 @@
 extends Node
 
-signal  goal_completed(text: String, reward: int) # Сообщает, что цель выполнена
+signal goal_completed(text: String, reward: int) # Сообщает, что цель выполнена
 
 const DAILY_GOALS := [ # id совпадает с action_id у предметов
 	{"id": "eat", "text": "Поесть", "reward": 10},

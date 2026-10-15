@@ -17,7 +17,7 @@ func _ready() -> void:
 	Goals.goal_completed.connect(_on_goal_completed)
 	
 func _on_goal_completed(text: String, reward: int) -> void:
-	toast_label.text = "Цель выполнена: %s + %d" % [text, reward]
+	toast_label.text = "Цель выполнена: %s +%d" % [text, reward]
 	toast_label.modulate.a = 1.0
 	if toast_tween:
 		toast_tween.kill() # Если прошлое сообщение ещё гаснет, останавливаем его

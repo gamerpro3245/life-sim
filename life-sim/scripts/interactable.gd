@@ -68,5 +68,8 @@ func _finish_using(user: Node2D, timer: Timer) -> void:
 	if need == "energy" and amount > 0.0 and GameClock.is_night():
 		final_amount *= 1.5 # Ночью сон полезнее
 	user.restore(need, final_amount)
-	user.money += money_change
+	var earned := money_change
+	if earned > 0:
+		earned = int(earned * user.get_money_factor()) # Настроение влияет только на доход, не на траты
+	user.money += earned
 	Goals.report(action_id)

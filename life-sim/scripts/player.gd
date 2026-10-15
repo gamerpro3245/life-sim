@@ -32,9 +32,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		$Sprite.position.y = 0.0
 		return
-	var current_speed := SPEED
+	var current_speed := SPEED * get_mood_speed_factor()
 	if needs["hunger"] <= 0.0 or needs["energy"] <= 0.0:
-		current_speed = SPEED * 0.4 # Если голоден или без сил, персонаж еле идёт
+		current_speed *= 0.4 # Голод или усталость замедляют ещё сильнее
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") # Смотрит управление и возвращает направление
 	velocity = direction * current_speed # Скорость
 	move_and_slide() # Реально двигает персонажа и не пускает его сквозь стены
@@ -76,6 +76,22 @@ func get_mood_text() -> String:
 		return "Плохое"
 	else:
 		return "Ужасное" # Возвращает результат и выходит из функции. Здесь ловит всё, что ниже 25
+		
+func get_mood_speed_factor() -> float:
+	var mood := get_mood()
+	if mood >= 75.0:
+		return 1.1
+	elif mood >= 50.0:
+		return 1.0
+	elif mood >= 25.0:
+		return 0.85
+	else:
+		return 0.7
+		
+func get_money_factor() -> float:
+	if get_mood() >= 75.0:
+		return 1.25 # В хорошем настроении работается продуктивнее
+	return 1.0
 
 func _ready() -> void:
 	Goals.goal_completed.connect(_on_goal_completed)

@@ -76,6 +76,15 @@ offset_right = 630.0
 offset_bottom = 393.0
 theme_override_font_sizes/font_size = 12
 
+[node name="ToastLabel" type="Label" parent="HUD" unique_id=103522547]
+custom_minimum_size = Vector2(400, 0)
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 63.0
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+
 [node name="DayNight" type="CanvasModulate" parent="." unique_id=767825786]
 script = ExtResource("4_o6xl0")
 

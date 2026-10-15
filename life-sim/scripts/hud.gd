@@ -9,6 +9,21 @@ extends CanvasLayer
 @onready var mood_label: Label = $Needs/MoodLabel
 @onready var money_label: Label = $Needs/MoneyLabel
 @onready var goals_label: Label = $GoalsLabel
+@onready var toast_label: Label = $ToastLabel
+var toast_tween: Tween = null # Текущая анимация сообщения
+
+func _ready() -> void:
+	toast_label.modulate.a = 0.0 # Сначала сообщение невидимо
+	Goals.goal_completed.connect(_on_goal_completed)
+	
+func _on_goal_completed(text: String, reward: int) -> void:
+	toast_label.text = "Цель выполнена: %s + %d" % [text, reward]
+	toast_label.modulate.a = 1.0
+	if toast_tween:
+		toast_tween.kill() # Если прошлое сообщение ещё гаснет, останавливаем его
+	toast_tween = create_tween()
+	toast_tween.tween_interval(1.5) # Держим сообщение на экране
+	toast_tween.tween_property(toast_label, "modulate:a", 0.0, 0.5) # Плавно гасим за полсекунды
 
 func _process(_delta: float) -> void:
 	hunger_bar.value = player.needs["hunger"]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://clc66h21vnsp0"]
+
+[ext_resource type="PackedScene" uid="uid://cturjo431i148" path="res://scenes/floor_tiles.tscn" id="1_mkmp1"]
+[ext_resource type="Texture2D" uid="uid://e67ubgvwrkm2" path="res://assets/walls/wall_bedroom.png" id="2_mkmp1"]
+[ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_pwtdf"]
+[ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="4_tjgix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bka4f"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0txl"]
+size = Vector2(20, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3kvk"]
+size = Vector2(20, 500)
+
+[node name="Room" type="Node2D" unique_id=487502813]
+
+[node name="FloorTiles" parent="." unique_id=1888950477 instance=ExtResource("1_mkmp1")]
+floor_tile = Vector2i(24, 4)
+
+[node name="Floor" type="TextureRect" parent="." unique_id=1479504671]
+offset_right = 800.0
+offset_bottom = 500.0
+texture = ExtResource("2_mkmp1")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=2103930810]
+position = Vector2(400, -10)
+shape = SubResource("RectangleShape2D_x7nd1")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=1326077346]
+position = Vector2(400, 510)
+shape = SubResource("RectangleShape2D_bka4f")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=790528099]
+position = Vector2(-10, 250)
+shape = SubResource("RectangleShape2D_g0txl")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=2062316809]
+position = Vector2(810, 250)
+shape = SubResource("RectangleShape2D_f3kvk")
+
+[node name="Bed" parent="." unique_id=1752328964 instance=ExtResource("3_pwtdf")]
+position = Vector2(400, 100)
+need = "energy"
+amount = 50.0
+tile_region = Rect2(136, 102, 16, 16)
+sound = "sleep"
+duration = 5.0
+action_id = "sleep"
+
+[node name="DoorToLiving" parent="." unique_id=1967346421 instance=ExtResource("4_tjgix")]
+position = Vector2(770, 200)
+target_room = "uid://dh6o8xkgr85dm"
+spawn_position = Vector2(80, 218)

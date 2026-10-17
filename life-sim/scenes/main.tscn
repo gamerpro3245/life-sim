@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dj8cmcv3e45gr" path="res://scripts/hud.gd" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://c5mj82ijhhs6d" path="res://scripts/day_night.gd" id="4_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://c445jhb5canlb" path="res://scenes/pause_menu.tscn" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c6mqpjxx7rdht" path="res://scenes/tutorial.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=616784210]
 script = ExtResource("1_jyhfs")
@@ -89,3 +90,5 @@ horizontal_alignment = 1
 script = ExtResource("4_o6xl0")
 
 [node name="PauseMenu" parent="." unique_id=231917153 instance=ExtResource("6_o6xl0")]
+
+[node name="Tutorial" parent="." unique_id=1267669592 instance=ExtResource("6_tefeu")]

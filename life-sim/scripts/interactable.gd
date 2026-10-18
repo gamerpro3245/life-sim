@@ -47,6 +47,9 @@ func _start_using() -> void:
 	if player_inside.money + money_change < 0:
 		$Hint.text = "Не хватает денег"
 		return
+	if need == "energy" and amount < 0.0 and player_inside.needs["energy"] <= 0.0:
+		$Hint.text = "Слишком устал"
+		return
 	var user := player_inside
 	user.busy = true
 	$Hint.text = "Занято..."

@@ -58,3 +58,12 @@ action_id = "sleep"
 position = Vector2(770, 200)
 target_room = "uid://dh6o8xkgr85dm"
 spawn_position = Vector2(80, 218)
+
+[node name="Easel" parent="." unique_id=800706906 instance=ExtResource("3_pwtdf")]
+position = Vector2(600, 100)
+need = "fun"
+amount = 25.0
+tile_region = Rect2(323, 221, 16, 16)
+sound = "click"
+duration = 5.0
+action_id = "play"

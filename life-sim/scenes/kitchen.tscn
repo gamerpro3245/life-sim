@@ -61,3 +61,12 @@ spawn_position = Vector2(680, 218)
 position = Vector2(770, 200)
 target_room = "uid://dif01uempico5"
 spawn_position = Vector2(80, 218)
+
+[node name="Stove" parent="." unique_id=142730346 instance=ExtResource("1_7ilqw")]
+position = Vector2(560, 100)
+amount = 70.0
+tile_region = Rect2(238, 238, 16, 16)
+sound = "click"
+duration = 6.0
+money_change = -15
+action_id = "eat"

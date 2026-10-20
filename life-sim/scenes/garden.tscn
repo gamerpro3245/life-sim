@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://doid1l0dovv0s"]
+
+[ext_resource type="PackedScene" uid="uid://cturjo431i148" path="res://scenes/floor_tiles.tscn" id="1_k83q7"]
+[ext_resource type="Texture2D" uid="uid://b7cgpwctgrjlj" path="res://assets/walls/wall_garden.png" id="2_4iwim"]
+[ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_o5anx"]
+[ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="4_wdstj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bka4f"]
+size = Vector2(800, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0txl"]
+size = Vector2(20, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3kvk"]
+size = Vector2(20, 500)
+
+[node name="Room" type="Node2D" unique_id=487502813]
+
+[node name="FloorTiles" parent="." unique_id=1888950477 instance=ExtResource("1_k83q7")]
+floor_tile = Vector2i(24, 4)
+
+[node name="Floor" type="TextureRect" parent="." unique_id=1479504671]
+offset_right = 800.0
+offset_bottom = 500.0
+texture = ExtResource("2_4iwim")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=722711158]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=2103930810]
+position = Vector2(400, -10)
+shape = SubResource("RectangleShape2D_x7nd1")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=1326077346]
+position = Vector2(400, 510)
+shape = SubResource("RectangleShape2D_bka4f")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=790528099]
+position = Vector2(-10, 250)
+shape = SubResource("RectangleShape2D_g0txl")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=2062316809]
+position = Vector2(810, 250)
+shape = SubResource("RectangleShape2D_f3kvk")
+
+[node name="DoorToBedroom" parent="." unique_id=1967346421 instance=ExtResource("4_wdstj")]
+position = Vector2(770, 200)
+target_room = "uid://clc66h21vnsp0"
+spawn_position = Vector2(80, 218)
+
+[node name="Flowers" parent="." unique_id=800706906 instance=ExtResource("3_o5anx")]
+position = Vector2(300, 100)
+need = "fun"
+amount = 20.0
+tile_region = Rect2(272, 0, 16, 16)
+sound = "click"
+duration = 3.0
+action_id = "play"
+
+[node name="Bench" parent="." unique_id=619399308 instance=ExtResource("3_o5anx")]
+position = Vector2(560, 100)
+need = "energy"
+amount = 10.0
+tile_region = Rect2(34, 34, 16, 16)
+sound = "sleep"
+duration = 3.0

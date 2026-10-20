@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dobnii38k8ynf" path="res://assets/kenney_roguelike_indoors/Tilesheets/roguelikeIndoor_transparent.png" id="2_ij5l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
-size = Vector2(104, 104)
+size = Vector2(88, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bka4f"]
 size = Vector2(64, 64)

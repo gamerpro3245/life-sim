@@ -27,7 +27,7 @@ func _ready() -> void:
 	back_button.pressed.connect(_on_back)
 	confirm_dialog = ConfirmationDialog.new()
 	confirm_dialog.title = "Новая игра"
-	confirm_dialog.dialog_text = "Начать заново? Старое сохранение будет удалено."
+	confirm_dialog.dialog_text = "Начать заново? Старое сохранение будет перезаписано."
 	confirm_dialog.ok_button_text = "Да"
 	confirm_dialog.cancel_button_text = "Отмена"
 	confirm_dialog.confirmed.connect(_start_new_game)

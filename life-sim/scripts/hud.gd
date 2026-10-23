@@ -15,14 +15,21 @@ var toast_tween: Tween = null # Текущая анимация сообщени
 func _ready() -> void:
 	toast_label.modulate.a = 0.0 # Сначала сообщение невидимо
 	Goals.goal_completed.connect(_on_goal_completed)
+	Goals.day_ended.connect(_on_day_ended)
 	
 func _on_goal_completed(text: String, reward: int) -> void:
-	toast_label.text = "Цель выполнена: %s +%d" % [text, reward]
+	_show_toast("Цель выполнена: %s +%d" % [text, reward], 1.5)
+	
+func _on_day_ended(day_number: int, done_count: int, total: int, earned: int) -> void:
+	_show_toast("День %d завершён: цели %d/%d, заработано %d" % [day_number, done_count, total, earned], 4.0)
+
+func _show_toast(text: String, hold: float) -> void:
+	toast_label.text = text
 	toast_label.modulate.a = 1.0
 	if toast_tween:
 		toast_tween.kill() # Если прошлое сообщение ещё гаснет, останавливаем его
 	toast_tween = create_tween()
-	toast_tween.tween_interval(1.5) # Держим сообщение на экране
+	toast_tween.tween_interval(hold) # Держим сообщение на экране
 	toast_tween.tween_property(toast_label, "modulate:a", 0.0, 0.5) # Плавно гасим за полсекунды
 
 func _process(_delta: float) -> void:

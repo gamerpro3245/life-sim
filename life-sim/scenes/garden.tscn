@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7cgpwctgrjlj" path="res://assets/walls/wall_garden.png" id="2_4iwim"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_o5anx"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="4_wdstj"]
+[ext_resource type="PackedScene" uid="uid://c78giyhbxt00f" path="res://scenes/decor.tscn" id="5_77qwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -66,3 +67,15 @@ amount = 10.0
 tile_region = Rect2(34, 34, 16, 16)
 sound = "sleep"
 duration = 3.0
+
+[node name="Plant1" parent="." unique_id=786542709 instance=ExtResource("5_77qwg")]
+position = Vector2(150, 100)
+tile_region = Rect2(272, 0, 16, 16)
+
+[node name="Plant2" parent="." unique_id=1683341878 instance=ExtResource("5_77qwg")]
+position = Vector2(680, 100)
+tile_region = Rect2(289, 0, 16, 16)
+
+[node name="Plant3" parent="." unique_id=401682412 instance=ExtResource("5_77qwg")]
+position = Vector2(430, 380)
+tile_region = Rect2(272, 0, 16, 16)

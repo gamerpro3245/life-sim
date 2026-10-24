@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="1_7ilqw"]
 [ext_resource type="Texture2D" uid="uid://cghyw81uluocm" path="res://assets/walls/wall_kitchen.png" id="2_bems3"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="2_mrp8g"]
+[ext_resource type="PackedScene" uid="uid://c78giyhbxt00f" path="res://scenes/decor.tscn" id="5_v3ycp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -70,3 +71,11 @@ sound = "click"
 duration = 6.0
 money_change = -15
 action_id = "eat"
+
+[node name="Painting" parent="." unique_id=786542709 instance=ExtResource("5_v3ycp")]
+position = Vector2(250, 28)
+tile_region = Rect2(323, 221, 16, 16)
+
+[node name="Plant" parent="." unique_id=1282879890 instance=ExtResource("5_v3ycp")]
+position = Vector2(100, 380)
+tile_region = Rect2(289, 0, 16, 16)

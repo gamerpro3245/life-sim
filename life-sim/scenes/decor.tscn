@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c78giyhbxt00f"]
+
+[ext_resource type="Texture2D" uid="uid://dobnii38k8ynf" path="res://assets/kenney_roguelike_indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_ovbhi"]
+[ext_resource type="Script" uid="uid://dac5reojfopaj" path="res://scripts/decor.gd" id="2_gxjgo"]
+
+[node name="Decor" type="Sprite2D" unique_id=786542709]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ovbhi")
+centered = false
+region_enabled = true
+script = ExtResource("2_gxjgo")

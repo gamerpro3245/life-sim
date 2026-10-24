@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="2_82jhl"]
 [ext_resource type="Texture2D" uid="uid://cbonexux248al" path="res://assets/walls/wall_bathroom.png" id="2_qfxnf"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="3_qfxnf"]
+[ext_resource type="PackedScene" uid="uid://c78giyhbxt00f" path="res://scenes/decor.tscn" id="5_qfxnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -57,3 +58,15 @@ action_id = "wash"
 position = Vector2(0, 200)
 target_room = "uid://cqfm0xfuhw5uc"
 spawn_position = Vector2(680, 218)
+
+[node name="MirrorTop" parent="." unique_id=786542709 instance=ExtResource("5_qfxnf")]
+position = Vector2(250, 28)
+tile_region = Rect2(374, 238, 16, 16)
+
+[node name="MirrorBottom" parent="." unique_id=1088579447 instance=ExtResource("5_qfxnf")]
+position = Vector2(250, 92)
+tile_region = Rect2(374, 255, 16, 16)
+
+[node name="Plant" parent="." unique_id=822281105 instance=ExtResource("5_qfxnf")]
+position = Vector2(650, 380)
+tile_region = Rect2(272, 0, 16, 16)

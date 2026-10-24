@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e67ubgvwrkm2" path="res://assets/walls/wall_bedroom.png" id="2_mkmp1"]
 [ext_resource type="PackedScene" uid="uid://bq74e5mp35j5j" path="res://scenes/interactable.tscn" id="3_pwtdf"]
 [ext_resource type="PackedScene" uid="uid://dqrrq2n7bsqcx" path="res://scenes/door.tscn" id="4_tjgix"]
+[ext_resource type="PackedScene" uid="uid://c78giyhbxt00f" path="res://scenes/decor.tscn" id="5_7lolw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7nd1"]
 size = Vector2(800, 20)
@@ -72,3 +73,11 @@ tile_region = Rect2(323, 221, 16, 16)
 sound = "click"
 duration = 5.0
 action_id = "play"
+
+[node name="Painting" parent="." unique_id=786542709 instance=ExtResource("5_7lolw")]
+position = Vector2(200, 28)
+tile_region = Rect2(323, 238, 16, 16)
+
+[node name="Plant" parent="." unique_id=211829779 instance=ExtResource("5_7lolw")]
+position = Vector2(120, 380)
+tile_region = Rect2(289, 0, 16, 16)
